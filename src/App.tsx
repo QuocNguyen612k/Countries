@@ -1,10 +1,13 @@
-import CssBaseline from "@material-ui/core/CssBaseline";
+import { CssBaseline, Container } from "@material-ui/core";
+import Logo from "./components/Logo";
 
 function App() {
   return (
     <>
       <CssBaseline />
-      <h1>hello</h1>
+      <Container maxWidth="sm" style={{ backgroundColor: "#cfe8fc" }}>
+        <Logo />
+      </Container>
     </>
   );
 }
