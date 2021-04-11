@@ -1,30 +1,39 @@
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemAvatar from "@material-ui/core/ListItemAvatar";
-import ListItemText from "@material-ui/core/ListItemText";
-import Avatar from "@material-ui/core/Avatar";
-import FolderIcon from "@material-ui/icons/Folder";
 import Box from "@material-ui/core/Box";
+import { Country } from "./CountryDetail";
+import ResultsList from "./ResultsList";
+import Notice from "./Notice";
 
-const Results = () => {
+interface Props {
+  countriesList: Country[];
+  searchText: string;
+}
+const styles = {
+  box: {
+    backgroundColor: "white",
+    overflow: "auto",
+    flex: "1",
+    marginTop: "1%",
+    marginBottom: "3%",
+  },
+};
+
+const Results = ({ countriesList, searchText }: Props) => {
+  const hasSearchText = !!searchText;
+  const tooManyMatches = countriesList.length > 10;
+  const hasNoResults = countriesList.length === 0;
   return (
-    <Box
-      style={{
-        backgroundColor: "white",
-        marginTop: "10px",
-        height: "70%",
-      }}
-    >
-      <List>
-        <ListItem button>
-          <ListItemAvatar>
-            <Avatar>
-              <FolderIcon />
-            </Avatar>
-          </ListItemAvatar>
-          <ListItemText primary="Single-line item" />
-        </ListItem>
-      </List>
+    <Box style={styles.box}>
+      {hasSearchText ? (
+        tooManyMatches ? (
+          <Notice info="Many Matches" />
+        ) : hasNoResults ? (
+          <Notice info="No Results" />
+        ) : (
+          <ResultsList countriesList={countriesList} />
+        )
+      ) : (
+        <Notice info="Empty Search" />
+      )}
     </Box>
   );
 };

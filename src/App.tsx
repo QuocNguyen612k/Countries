@@ -2,23 +2,24 @@ import { CssBaseline, Container, makeStyles } from "@material-ui/core";
 import Logo from "./components/Logo";
 import Search from "./components/Search";
 
-const useStylesContainer = makeStyles((theme) => ({
+const useStylesContainer = makeStyles(() => ({
   root: {
     height: "100vh",
+    display: "flex",
+    flexDirection: "column",
   },
 }));
 
-function App() {
+export default function App() {
   const classesContainer = useStylesContainer();
+
   return (
     <>
       <CssBaseline />
-      <Container maxWidth="sm" className={classesContainer.root}>
+      <Container maxWidth="lg" className={classesContainer.root}>
         <Logo />
         <Search />
       </Container>
     </>
   );
 }
-
-export default App;
