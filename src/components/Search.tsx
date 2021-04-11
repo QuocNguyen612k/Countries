@@ -6,6 +6,7 @@ import axios from "axios";
 
 const Search = () => {
   const [countries, setCountries] = useState<Country[]>([]);
+  const [searchText, setSearchText] = useState("");
 
   useEffect(() => {
     const fetchAllCountries = async () => {
@@ -15,9 +16,17 @@ const Search = () => {
     fetchAllCountries();
   }, []);
 
+  const handleSearchChange = (input: string) => {
+    setSearchText(input);
+    console.log(searchText);
+  };
+
   return (
     <>
-      <SearchBar />
+      <SearchBar
+        searchText={searchText}
+        handleSearchChange={handleSearchChange}
+      />
       <Results countriesList={countries} />
     </>
   );
