@@ -7,6 +7,7 @@ import axios from "axios";
 const Search = () => {
   const [countries, setCountries] = useState<Country[]>([]);
   const [searchText, setSearchText] = useState("");
+  const [results, setResults] = useState<Country[]>([]);
 
   useEffect(() => {
     const fetchAllCountries = async () => {
@@ -16,9 +17,15 @@ const Search = () => {
     fetchAllCountries();
   }, []);
 
+  useEffect(() => {
+    const filteredCountries = countries.filter((country) =>
+      country.name.toLocaleLowerCase().includes(searchText.toLocaleLowerCase())
+    );
+    setResults(filteredCountries);
+  }, [searchText, countries]);
+
   const handleSearchChange = (input: string) => {
     setSearchText(input);
-    console.log(searchText);
   };
 
   return (
@@ -27,7 +34,7 @@ const Search = () => {
         searchText={searchText}
         handleSearchChange={handleSearchChange}
       />
-      <Results countriesList={countries} />
+      <Results countriesList={results} searchText={searchText} />
     </>
   );
 };
