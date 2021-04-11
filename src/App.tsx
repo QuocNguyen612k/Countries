@@ -1,12 +1,19 @@
-import { CssBaseline, Container } from "@material-ui/core";
+import { CssBaseline, Container, makeStyles } from "@material-ui/core";
 import Logo from "./components/Logo";
 import Search from "./components/Search";
 
+const useStylesContainer = makeStyles((theme) => ({
+  root: {
+    height: "100vh",
+  },
+}));
+
 function App() {
+  const classesContainer = useStylesContainer();
   return (
     <>
       <CssBaseline />
-      <Container maxWidth="sm" style={{ backgroundColor: "#cfe8fc" }}>
+      <Container maxWidth="sm" className={classesContainer.root}>
         <Logo />
         <Search />
       </Container>

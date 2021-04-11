@@ -7,6 +7,7 @@ const Logo = () => {
       alt="App name"
       image={`${process.env.PUBLIC_URL}/images/countries.png`}
       title="App name"
+      style={{ paddingTop: "7%" }}
     />
   );
 };
