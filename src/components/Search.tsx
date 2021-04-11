@@ -18,7 +18,7 @@ const Search = () => {
   return (
     <>
       <SearchBar />
-      <Results />
+      <Results countriesList={countries} />
     </>
   );
 };
