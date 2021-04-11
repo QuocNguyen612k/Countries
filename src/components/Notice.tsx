@@ -17,7 +17,6 @@ const styles = {
     alignItems: "center",
     boxShadow: "none",
     flexDirection: "column" as "column",
-    marginTop: "25%",
   },
 };
 export default function Notice({ info }: Props) {

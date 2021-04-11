@@ -9,11 +9,12 @@ interface Props {
 }
 const styles = {
   box: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
     backgroundColor: "white",
     overflow: "auto",
     flex: "1",
-    marginTop: "1%",
-    marginBottom: "3%",
   },
 };
 

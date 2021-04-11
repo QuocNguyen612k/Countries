@@ -11,7 +11,7 @@ interface Props {
 
 export default function ResultsList({ countriesList }: Props) {
   return (
-    <List>
+    <List style={{ flex: 1, alignSelf: "stretch" }}>
       {countriesList.map((country) => {
         return (
           <ListItem button key={country.name}>
