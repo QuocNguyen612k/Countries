@@ -2,6 +2,7 @@ import Box from "@material-ui/core/Box";
 import { Country } from "./CountryDetail";
 import ResultsList from "./ResultsList";
 import Notice from "./Notice";
+import React from "react";
 
 interface Props {
   countriesList: Country[];
@@ -39,4 +40,4 @@ const Results = ({ countriesList, searchText }: Props) => {
   );
 };
 
-export default Results;
+export default React.memo(Results);

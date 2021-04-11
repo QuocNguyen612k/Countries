@@ -1,6 +1,7 @@
 import { CssBaseline, Container, makeStyles } from "@material-ui/core";
 import Logo from "./components/Logo";
 import Search from "./components/Search";
+import Footer from "./components/Footer";
 
 const useStylesContainer = makeStyles(() => ({
   root: {
@@ -20,6 +21,7 @@ export default function App() {
       <Container maxWidth="lg" className={classesContainer.root}>
         <Logo />
         <Search />
+        <Footer />
       </Container>
     </>
   );
