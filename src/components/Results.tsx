@@ -1,35 +1,38 @@
 import Box from "@material-ui/core/Box";
 import { Country } from "./CountryDetail";
 import ResultsList from "./ResultsList";
+import Notice from "./Notice";
 
 interface Props {
   countriesList: Country[];
   searchText: string;
 }
+const styles = {
+  box: {
+    backgroundColor: "white",
+    overflow: "auto",
+    flex: "1",
+    marginTop: "1%",
+    marginBottom: "3%",
+  },
+};
 
 const Results = ({ countriesList, searchText }: Props) => {
   const hasSearchText = !!searchText;
   const tooManyMatches = countriesList.length > 10;
   const hasNoResults = countriesList.length === 0;
   return (
-    <Box
-      style={{
-        backgroundColor: "white",
-        marginTop: "10px",
-        height: "70%",
-        overflow: "auto",
-      }}
-    >
+    <Box style={styles.box}>
       {hasSearchText ? (
         tooManyMatches ? (
-          <h1>Too many matches</h1>
+          <Notice info="Many Matches" />
         ) : hasNoResults ? (
-          <h1>No matches</h1>
+          <Notice info="No Results" />
         ) : (
           <ResultsList countriesList={countriesList} />
         )
       ) : (
-        <h1>type sth to begin</h1>
+        <Notice info="Empty Search" />
       )}
     </Box>
   );
