@@ -1,21 +1,12 @@
 import SearchBar from "../components/SearchBar";
 import Results from "../components/Results";
-import { Country } from "../components/CountryDetail";
-import { useEffect, useState } from "react";
-import axios from "axios";
+import { useEffect, useState, useContext } from "react";
+import { CountriesContext, Country } from "../context/countries";
 
 const Search = () => {
-  const [countries, setCountries] = useState<Country[]>([]);
+  const countries = useContext(CountriesContext) as Country[];
   const [searchText, setSearchText] = useState("");
   const [results, setResults] = useState<Country[]>([]);
-
-  useEffect(() => {
-    const fetchAllCountries = async () => {
-      const res = await axios("https://restcountries.eu/rest/v2/all");
-      setCountries(res.data as Country[]);
-    };
-    fetchAllCountries();
-  }, []);
 
   useEffect(() => {
     const filteredCountries = countries.filter((country) =>

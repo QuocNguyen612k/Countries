@@ -1,3 +1,5 @@
+import { createContext } from "react";
+
 interface Languages {
   name: string;
 }
@@ -10,6 +12,4 @@ export interface Country {
   languages: Languages[];
 }
 
-export default function CountryDetail() {
-  return <h1>3333</h1>;
-}
+export const CountriesContext = createContext<Country[]>([]);
