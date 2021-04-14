@@ -1,5 +1,5 @@
-import Search from "../containers/Search";
 import Logo from "../components/Logo";
+import Search from "../containers/Search";
 
 export default function CountriesSearch() {
   return (

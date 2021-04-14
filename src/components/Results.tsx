@@ -1,8 +1,8 @@
 import Box from "@material-ui/core/Box";
-import ResultsList from "./ResultsList";
+import { Country } from "../context/countries";
 import Notice from "./Notice";
 import React from "react";
-import { Country } from "../context/countries";
+import ResultsList from "./ResultsList";
 
 interface Props {
   countriesList: Country[];

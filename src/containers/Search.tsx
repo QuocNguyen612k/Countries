@@ -1,7 +1,7 @@
-import SearchBar from "../components/SearchBar";
-import Results from "../components/Results";
-import { useEffect, useState, useContext } from "react";
 import { CountriesContext, Country } from "../context/countries";
+import { useContext, useEffect, useState } from "react";
+import Results from "../components/Results";
+import SearchBar from "../components/SearchBar";
 
 const Search = () => {
   const countries = useContext(CountriesContext) as Country[];

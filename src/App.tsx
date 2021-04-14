@@ -1,5 +1,7 @@
-import { CountriesSearch, CountryDetail } from "./pages";
 import * as ROUTES from "./constants/routes";
+import { Container, CssBaseline, makeStyles } from "@material-ui/core";
+import { CountriesContext, Country } from "./context/countries";
+import { CountriesSearch, CountryDetail } from "./pages";
 import {
   Redirect,
   Route,
@@ -8,8 +10,6 @@ import {
 } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { CountriesContext, Country } from "./context/countries";
-import { Container, CssBaseline, makeStyles } from "@material-ui/core";
 
 const useStylesContainer = makeStyles(() => ({
   root: {
