@@ -1,26 +1,26 @@
-import { CssBaseline, Container, makeStyles } from "@material-ui/core";
-import Logo from "./components/Logo";
-import CountriesSearch from "./pages/CountriesSearch";
-
-const useStylesContainer = makeStyles(() => ({
-  root: {
-    height: "100vh",
-    display: "flex",
-    flexDirection: "column",
-    gap: "1%",
-  },
-}));
+import { CountriesSearch, CountryDetail } from "./pages";
+import * as ROUTES from "./constants/routes";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from "react-router-dom";
 
 export default function App() {
-  const classesContainer = useStylesContainer();
-
   return (
-    <>
-      <CssBaseline />
-      <Container maxWidth="lg" className={classesContainer.root}>
-        <Logo />
-        <CountriesSearch />
-      </Container>
-    </>
+    <Router>
+      <Switch>
+        <Route exact path={ROUTES.DEFAULT}>
+          <Redirect to="/Countries" />
+        </Route>
+        <Route exact path={[ROUTES.COUNTRIES_SEARCH, ROUTES.COUNTRIES_DEFAULT]}>
+          <CountriesSearch />
+        </Route>
+        <Route exact path={ROUTES.COUNTRY_DETAIL}>
+          <CountryDetail />
+        </Route>
+      </Switch>
+    </Router>
   );
 }
