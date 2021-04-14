@@ -1,6 +1,6 @@
-import SearchBar from "./SearchBar";
-import Results from "./Results";
-import { Country } from "./CountryDetail";
+import SearchBar from "../components/SearchBar";
+import Results from "../components/Results";
+import { Country } from "../components/CountryDetail";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
