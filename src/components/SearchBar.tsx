@@ -22,6 +22,17 @@ const SearchBar = ({ searchText, handleSearchChange }: Props) => {
         <SearchIcon />
       </IconButton>
     </Paper>
+    // <TextField
+    //   className={classes.search}
+    //   variant="outlined"
+    //   id={`${panelName}-filter`}
+    //   label={t(`Filter ${panelName}`)}
+    //   name={`${panelName}-filter`}
+    //   type="search"
+    //   value={filter}
+    //   onChange={(event) => handleSearchTextChange(event.target.value)}
+    //   // size="small"
+    ///>
   );
 };
 

@@ -6,7 +6,7 @@ interface Languages {
 
 export interface Country {
   name: string;
-  capitals: string;
+  capital: string;
   population: number;
   flag: string;
   languages: Languages[];

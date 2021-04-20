@@ -1,28 +1,13 @@
-import * as ROUTES from "./constants/routes";
-import { Container, CssBaseline, makeStyles } from "@material-ui/core";
+import { Container, CssBaseline } from "@material-ui/core";
 import { CountriesContext, Country } from "./context/countries";
-import { CountriesSearch, CountryDetail } from "./pages";
-import {
-  Redirect,
-  Route,
-  BrowserRouter as Router,
-  Switch,
-} from "react-router-dom";
 import { useEffect, useState } from "react";
+import { CountriesSearch } from "./pages";
 import axios from "axios";
-
-const useStylesContainer = makeStyles(() => ({
-  root: {
-    height: "100vh",
-    display: "flex",
-    flexDirection: "column",
-    gap: "1%",
-  },
-}));
+import { useStyles } from "./constants/styles";
 
 export default function App() {
   const [countries, setCountries] = useState<Country[]>([]);
-  const classesContainer = useStylesContainer();
+  const classes = useStyles();
 
   useEffect(() => {
     const fetchAllCountries = async () => {
@@ -35,24 +20,9 @@ export default function App() {
   return (
     <>
       <CssBaseline />
-      <Container maxWidth="lg" className={classesContainer.root}>
+      <Container maxWidth="lg" className={classes.root}>
         <CountriesContext.Provider value={countries}>
-          <Router>
-            <Switch>
-              <Route exact path={ROUTES.DEFAULT}>
-                <Redirect to="/Countries" />
-              </Route>
-              <Route
-                exact
-                path={[ROUTES.COUNTRIES_SEARCH, ROUTES.COUNTRIES_DEFAULT]}
-              >
-                <CountriesSearch />
-              </Route>
-              <Route exact path={ROUTES.COUNTRY_DETAIL}>
-                <CountryDetail />
-              </Route>
-            </Switch>
-          </Router>
+          <CountriesSearch />
         </CountriesContext.Provider>
       </Container>
     </>

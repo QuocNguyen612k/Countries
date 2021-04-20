@@ -1,4 +1,4 @@
-export const COUNTRIES_SEARCH = "/Countries/search";
-export const COUNTRY_DETAIL = "/Countries/detail";
+export const COUNTRIES_SEARCH = "/countries/search";
+export const COUNTRY_DETAIL = "/countries/detail";
 export const DEFAULT = "/";
-export const COUNTRIES_DEFAULT = "/Countries";
+export const COUNTRIES_DEFAULT = "/countries";

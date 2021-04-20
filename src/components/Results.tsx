@@ -23,6 +23,7 @@ const Results = ({ countriesList, searchText }: Props) => {
   const hasSearchText = !!searchText;
   const tooManyMatches = countriesList.length > 10;
   const hasNoResults = countriesList.length === 0;
+
   return (
     <Box style={styles.box}>
       {hasSearchText ? (

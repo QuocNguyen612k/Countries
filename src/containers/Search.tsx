@@ -1,5 +1,8 @@
+import * as ROUTES from "../constants/routes";
 import { CountriesContext, Country } from "../context/countries";
+import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
+import { CountryDetail } from "../pages";
 import Results from "../components/Results";
 import SearchBar from "../components/SearchBar";
 
@@ -20,13 +23,22 @@ const Search = () => {
   };
 
   return (
-    <>
-      <SearchBar
-        searchText={searchText}
-        handleSearchChange={handleSearchChange}
-      />
-      <Results countriesList={results} searchText={searchText} />
-    </>
+    <Router>
+      <Switch>
+        <Route exact path={`/Countries`}>
+          <>
+            <SearchBar
+              searchText={searchText}
+              handleSearchChange={handleSearchChange}
+            />
+            <Results countriesList={results} searchText={searchText} />
+          </>
+        </Route>
+        <Route exact path={`${ROUTES.COUNTRY_DETAIL}/:name`}>
+          <CountryDetail />
+        </Route>
+      </Switch>
+    </Router>
   );
 };
 export default Search;

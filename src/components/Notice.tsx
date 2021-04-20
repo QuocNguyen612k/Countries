@@ -20,6 +20,7 @@ const styles = {
     flexDirection: "column" as "column",
   },
 };
+
 export default function Notice({ info }: Props) {
   const notices = [
     {
