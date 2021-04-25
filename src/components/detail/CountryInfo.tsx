@@ -9,10 +9,12 @@ export default function CountryInfo({ name, info }: Props) {
   const classes = useStyles();
   return (
     <TableRow>
-      <TableCell align="left" className={classes.bold}>
+      <TableCell
+        className={`left-bold-cell ${classes.leftCell} ${classes.bold}`}
+      >
         {name}
       </TableCell>
-      <TableCell align="left">{info}</TableCell>
+      <TableCell className={classes.leftCell}>{info}</TableCell>
     </TableRow>
   );
 }

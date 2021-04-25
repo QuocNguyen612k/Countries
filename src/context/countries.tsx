@@ -1,6 +1,6 @@
 import { createContext } from "react";
 
-interface Languages {
+export interface Languages {
   name: string;
 }
 

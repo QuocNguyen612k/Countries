@@ -1,9 +1,11 @@
 import Box from "@material-ui/core/Box";
 import CardMedia from "@material-ui/core/CardMedia";
+import { useStyles } from "../constants/styles";
 
 const Logo = () => {
+  const classes = useStyles();
   return (
-    <Box display="flex" alignItems="center" flexDirection="column">
+    <Box className={classes.centerImgWrapper}>
       <CardMedia
         component="img"
         alt="App name"

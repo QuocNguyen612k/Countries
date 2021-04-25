@@ -1,11 +1,44 @@
-import Logo from "../components/Logo";
-import Search from "../containers/Search";
+import * as ROUTES from "../constants/routes";
+import { CountriesContext, Country } from "../context/countries";
+import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
+import { useContext, useEffect, useState } from "react";
+import { CountryDetail } from "../pages";
+import Results from "../components/search/Results";
+import SearchBar from "../components/search/SearchBar";
 
-export default function CountriesSearch() {
+const Search = () => {
+  const countries = useContext(CountriesContext) as Country[];
+  const [searchText, setSearchText] = useState("");
+  const [results, setResults] = useState<Country[]>([]);
+
+  useEffect(() => {
+    const filteredCountries = countries.filter((country) =>
+      country.name.toLocaleLowerCase().includes(searchText.toLocaleLowerCase())
+    );
+    setResults(filteredCountries);
+  }, [searchText, countries]);
+
+  const handleSearchChange = (input: string) => {
+    setSearchText(input);
+  };
+
   return (
-    <>
-      <Logo />
-      <Search />
-    </>
+    <Router>
+      <Switch>
+        <Route exact path={`/countries`}>
+          <>
+            <SearchBar
+              searchText={searchText}
+              handleSearchChange={handleSearchChange}
+            />
+            <Results countriesList={results} searchText={searchText} />
+          </>
+        </Route>
+        <Route exact path={`${ROUTES.COUNTRY_DETAIL}/:name`}>
+          <CountryDetail />
+        </Route>
+      </Switch>
+    </Router>
   );
-}
+};
+export default Search;

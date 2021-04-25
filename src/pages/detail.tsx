@@ -1,5 +1,6 @@
 import { CountriesContext, Country } from "../context/countries";
 import CountryInfo from "../components/detail/CountryInfo";
+import CountryLanguages from "../components/detail/CountryLanguages";
 import CountryName from "../components/detail/CountryName";
 import FlagImg from "../components/detail/FlagImg";
 import Paper from "@material-ui/core/Paper";
@@ -26,7 +27,7 @@ export default function CountryDetail() {
   return (
     <>
       {filter !== undefined && (
-        <TableContainer component={Paper}>
+        <TableContainer component={Paper} style={{ boxShadow: "none" }}>
           <Table>
             <TableHead>
               <CountryName name={country.name} />
@@ -34,7 +35,8 @@ export default function CountryDetail() {
             <TableBody>
               <FlagImg name={country?.name} img={country.flag} />
               <CountryInfo name="Capital" info={country.capital} />
-              <CountryInfo name="Population" info={"" + country.population} />
+              <CountryInfo name="Population" info={`${country.population}`} />
+              <CountryLanguages languages={country.languages} />
             </TableBody>
           </Table>
         </TableContainer>

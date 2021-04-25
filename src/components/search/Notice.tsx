@@ -5,45 +5,38 @@ import SearchRoundedIcon from "@material-ui/icons/SearchRounded";
 import SentimentVeryDissatisfiedIcon from "@material-ui/icons/SentimentVeryDissatisfied";
 import SentimentVeryDissatisfiedRoundedIcon from "@material-ui/icons/SentimentVeryDissatisfiedRounded";
 import Typography from "@material-ui/core/Typography";
+import { useStyles } from "../../constants/styles";
 
 interface Props {
   info: string;
 }
-const styles = {
-  icon: {
-    fontSize: 100,
-  },
-  card: {
-    display: "flex",
-    alignItems: "center",
-    boxShadow: "none",
-    flexDirection: "column" as "column",
-  },
-};
 
 export default function Notice({ info }: Props) {
+  const classes = useStyles();
   const notices = [
     {
       info: "Many Matches",
       message: "Too many matches",
-      icon: <SentimentVeryDissatisfiedRoundedIcon style={styles.icon} />,
+      icon: (
+        <SentimentVeryDissatisfiedRoundedIcon className={classes.noticeIcon} />
+      ),
     },
     {
       info: "Empty Search",
       message: "Type something to beign",
-      icon: <SearchRoundedIcon style={styles.icon} />,
+      icon: <SearchRoundedIcon className={classes.noticeIcon} />,
     },
     {
       info: "No Results",
       message: "No matches",
-      icon: <SentimentVeryDissatisfiedIcon style={styles.icon} />,
+      icon: <SentimentVeryDissatisfiedIcon className={classes.noticeIcon} />,
     },
   ];
 
   const notice = notices.filter((notice) => notice.info === info);
 
   return (
-    <Card style={styles.card}>
+    <Card className={classes.noticeCard}>
       <CardMedia>{notice[0].icon}</CardMedia>
       <CardContent>
         <Typography gutterBottom variant="h5" component="h2">

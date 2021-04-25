@@ -14,8 +14,8 @@ export default function FlagImg({ name, img }: Props) {
 
   return (
     <TableRow>
-      <TableCell align="center" colSpan={2}>
-        <Box display="flex" alignItems="center" flexDirection="column">
+      <TableCell colSpan={2}>
+        <Box className={classes.centerImgWrapper}>
           <CardMedia
             component="img"
             alt={`${name}'s flag`}
