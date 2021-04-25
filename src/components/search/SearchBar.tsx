@@ -12,7 +12,10 @@ interface Props {
 const SearchBar = ({ searchText, handleSearchChange }: Props) => {
   const classes = useStyles();
   return (
-    <Paper component="form" style={{ display: "flex" }}>
+    <Paper component="form" className={classes.searchField}>
+      <IconButton type="button" aria-label="search">
+        <SearchIcon />
+      </IconButton>
       <InputBase
         placeholder="Search"
         inputProps={{ "aria-label": "search " }}
@@ -20,9 +23,6 @@ const SearchBar = ({ searchText, handleSearchChange }: Props) => {
         value={searchText}
         onChange={(e) => handleSearchChange(e.target.value)}
       />
-      <IconButton type="button" aria-label="search">
-        <SearchIcon />
-      </IconButton>
     </Paper>
   );
 };

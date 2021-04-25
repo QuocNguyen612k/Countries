@@ -13,7 +13,7 @@ interface Props {
 const Results = ({ countriesList, searchText }: Props) => {
   const classes = useStyles();
   const hasSearchText = !!searchText;
-  const tooManyMatches = countriesList.length > 10;
+  const tooManyMatches = countriesList.length > 40;
   const hasNoResults = countriesList.length === 0;
 
   return (

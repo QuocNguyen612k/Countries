@@ -21,7 +21,7 @@ export default function FlagImg({ name, img }: Props) {
             alt={`${name}'s flag`}
             image={img}
             title={`${name}'s flag`}
-            className={classes.img}
+            className={classes.flagImg}
           />
         </Box>
       </TableCell>

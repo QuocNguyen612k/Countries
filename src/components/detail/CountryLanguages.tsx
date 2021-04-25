@@ -11,14 +11,18 @@ export default function CountryInfo({ languages }: Props) {
   const classes = useStyles();
   return (
     <TableRow>
-      <TableCell
-        className={`left-bold-cell ${classes.leftCell} ${classes.bold}`}
-      >
-        Languages
+      <TableCell className={classes.leftCell}>
+        <Typography variant="body2" className={classes.centerBold}>
+          Languages
+        </Typography>
       </TableCell>
       <TableCell className={classes.leftCell}>
         {languages.map((language) => (
-          <Typography key={language.name} variant="body2">
+          <Typography
+            key={language.name}
+            variant="body2"
+            className={classes.center}
+          >
             {language.name}
           </Typography>
         ))}

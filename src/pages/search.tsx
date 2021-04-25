@@ -5,12 +5,15 @@ import { useContext, useEffect, useState } from "react";
 import { CountryDetail } from "../pages";
 import Results from "../components/search/Results";
 import SearchBar from "../components/search/SearchBar";
+import { useStyles } from "../constants/styles";
+import { AppBar, Box } from "@material-ui/core";
+import Logo from "../components/Logo";
 
 const Search = () => {
   const countries = useContext(CountriesContext) as Country[];
   const [searchText, setSearchText] = useState("");
   const [results, setResults] = useState<Country[]>([]);
-
+  const classes = useStyles();
   useEffect(() => {
     const filteredCountries = countries.filter((country) =>
       country.name.toLocaleLowerCase().includes(searchText.toLocaleLowerCase())
@@ -27,10 +30,15 @@ const Search = () => {
       <Switch>
         <Route exact path={`/countries`}>
           <>
-            <SearchBar
-              searchText={searchText}
-              handleSearchChange={handleSearchChange}
-            />
+            <AppBar position="static">
+              <Logo />
+              <Box className={classes.searchBarWrapper}>
+                <SearchBar
+                  searchText={searchText}
+                  handleSearchChange={handleSearchChange}
+                />
+              </Box>
+            </AppBar>
             <Results countriesList={results} searchText={searchText} />
           </>
         </Route>
