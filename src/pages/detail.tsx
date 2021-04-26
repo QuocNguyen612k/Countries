@@ -10,7 +10,7 @@ import {
   TableBody,
   TableHead,
   Typography,
-  Box,
+  Container,
 } from "@material-ui/core/";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import { useContext } from "react";
@@ -54,8 +54,8 @@ export default function CountryDetail() {
               {country.name}
             </Typography>
           </AppBar>
-          <Box className={classes.detailWrapper}>
-            <Table>
+          <Container maxWidth="xl" className={classes.centerWrapper}>
+            <Table className={classes.detailWrapper}>
               <TableHead>
                 <CountryName name={country.name} />
               </TableHead>
@@ -66,7 +66,7 @@ export default function CountryDetail() {
                 <CountryLanguages languages={country.languages} />
               </TableBody>
             </Table>
-          </Box>
+          </Container>
         </>
       )}
     </>

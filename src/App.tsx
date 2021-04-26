@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { CountriesSearch } from "./pages";
 import { useStyles } from "./constants/styles";
+import Logo from "./components/Logo";
 
 export default function App() {
   const [countries, setCountries] = useState<Country[]>([]);
@@ -14,17 +15,21 @@ export default function App() {
       const res = await axios("https://restcountries.eu/rest/v2/all");
       setCountries(res.data as Country[]);
     };
-    fetchAllCountries();
+    setTimeout(() => fetchAllCountries(), 1000);
   }, []);
-
+  const isLoading = countries.length === 0;
   return (
     <>
       <CssBaseline />
-      <Box className={classes.root}>
-        <CountriesContext.Provider value={countries}>
-          <CountriesSearch />
-        </CountriesContext.Provider>
-      </Box>
+      <CountriesContext.Provider value={countries}>
+        {isLoading ? (
+          <Logo />
+        ) : (
+          <Box className={classes.root}>
+            <CountriesSearch />
+          </Box>
+        )}
+      </CountriesContext.Provider>
     </>
   );
 }

@@ -6,8 +6,7 @@ import { CountryDetail } from "../pages";
 import Results from "../components/search/Results";
 import SearchBar from "../components/search/SearchBar";
 import { useStyles } from "../constants/styles";
-import { AppBar, Box } from "@material-ui/core";
-import Logo from "../components/Logo";
+import { AppBar, Box, Container, Typography } from "@material-ui/core";
 
 const Search = () => {
   const countries = useContext(CountriesContext) as Country[];
@@ -30,16 +29,18 @@ const Search = () => {
       <Switch>
         <Route exact path={`/countries`}>
           <>
-            <AppBar position="static">
-              <Logo />
-              <Box className={classes.searchBarWrapper}>
-                <SearchBar
-                  searchText={searchText}
-                  handleSearchChange={handleSearchChange}
-                />
+            <AppBar position="static" className={classes.appBar}>
+              <Box>
+                <Typography variant="h4">Countries</Typography>
               </Box>
             </AppBar>
-            <Results countriesList={results} searchText={searchText} />
+            <Container maxWidth="xl" className={classes.centerWrapper}>
+              <SearchBar
+                searchText={searchText}
+                handleSearchChange={handleSearchChange}
+              />
+              <Results countriesList={results} searchText={searchText} />
+            </Container>
           </>
         </Route>
         <Route exact path={`${ROUTES.COUNTRY_DETAIL}/:name`}>
