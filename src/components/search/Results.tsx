@@ -1,28 +1,23 @@
 import Box from "@material-ui/core/Box";
-import { Country } from "./CountryDetail";
-import ResultsList from "./ResultsList";
+import { Country } from "../../context/countries";
 import Notice from "./Notice";
+import React from "react";
+import ResultsList from "./ResultsList";
+import { useStyles } from "../../constants/styles";
 
 interface Props {
   countriesList: Country[];
   searchText: string;
 }
-const styles = {
-  box: {
-    backgroundColor: "white",
-    overflow: "auto",
-    flex: "1",
-    marginTop: "1%",
-    marginBottom: "3%",
-  },
-};
 
 const Results = ({ countriesList, searchText }: Props) => {
+  const classes = useStyles();
   const hasSearchText = !!searchText;
-  const tooManyMatches = countriesList.length > 10;
+  const tooManyMatches = countriesList.length > 40;
   const hasNoResults = countriesList.length === 0;
+
   return (
-    <Box style={styles.box}>
+    <Box className={classes.resultsBox}>
       {hasSearchText ? (
         tooManyMatches ? (
           <Notice info="Many Matches" />
@@ -38,4 +33,4 @@ const Results = ({ countriesList, searchText }: Props) => {
   );
 };
 
-export default Results;
+export default React.memo(Results);
