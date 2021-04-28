@@ -63,6 +63,9 @@ export default function CountryDetail() {
                 <FlagImg name={country.name} img={country.flag} />
                 <CountryInfo name="Capital" info={country.capital} />
                 <CountryInfo name="Population" info={`${country.population}`} />
+                <CountryInfo name="Area" info={`${country.area}`} />
+                <CountryInfo name="Region" info={country.region} />
+                <CountryInfo name="Subregion" info={country.subregion} />
                 <CountryLanguages languages={country.languages} />
               </TableBody>
             </Table>
