@@ -1,29 +1,24 @@
-import { Languages } from "../../context/countries";
+import { Typography } from "@material-ui/core";
 import TableCell from "@material-ui/core/TableCell";
 import TableRow from "@material-ui/core/TableRow";
-import { Typography } from "@material-ui/core";
 import { useStyles } from "../../constants/styles";
-
 interface Props {
-  languages: Languages[];
+  name: string;
+  info: string[];
 }
-export default function CountryLanguages({ languages }: Props) {
+export default function CountryArrInfo({ name, info }: Props) {
   const classes = useStyles();
   return (
     <TableRow>
       <TableCell className={classes.leftCell}>
         <Typography variant="body2" className={classes.centerBold}>
-          Languages
+          {name}
         </Typography>
       </TableCell>
       <TableCell className={classes.leftCell}>
-        {languages.map((language) => (
-          <Typography
-            key={language.name}
-            variant="body2"
-            className={classes.center}
-          >
-            {language.name}
+        {info.map((info) => (
+          <Typography key={info} variant="body2" className={classes.center}>
+            {`- ${info}`}
           </Typography>
         ))}
       </TableCell>

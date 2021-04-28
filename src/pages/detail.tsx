@@ -1,6 +1,8 @@
 import { CountriesContext, Country } from "../context/countries";
 import CountryInfo from "../components/detail/CountryInfo";
+import CountryArrInfo from "../components/detail/CountryArrInfo";
 import CountryLanguages from "../components/detail/CountryLanguages";
+import CountryCurrencies from "../components/detail/CountryCurrencies";
 import CountryName from "../components/detail/CountryName";
 import FlagImg from "../components/detail/FlagImg";
 import {
@@ -63,10 +65,16 @@ export default function CountryDetail() {
                 <FlagImg name={country.name} img={country.flag} />
                 <CountryInfo name="Capital" info={country.capital} />
                 <CountryInfo name="Population" info={`${country.population}`} />
-                <CountryInfo name="Area" info={`${country.area}`} />
+                <CountryInfo name="Area" info={`${country.area} \u33A2`} />
                 <CountryInfo name="Region" info={country.region} />
                 <CountryInfo name="Subregion" info={country.subregion} />
                 <CountryLanguages languages={country.languages} />
+                <CountryCurrencies currencies={country.currencies} />
+                <CountryArrInfo name="Timezones" info={country.timezones} />
+                <CountryArrInfo
+                  name="Calling codes"
+                  info={country.callingCodes}
+                />
               </TableBody>
             </Table>
           </Container>
