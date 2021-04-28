@@ -27,7 +27,7 @@ const Search = () => {
   return (
     <Router>
       <Switch>
-        <Route exact path={`/countries`}>
+        <Route exact path={`${ROUTES.COUNTRIES_DEFAULT}`}>
           <>
             <AppBar position="static" className={classes.appBar}>
               <Box>
