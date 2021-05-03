@@ -1,29 +1,32 @@
-import IconButton from "@material-ui/core/IconButton";
 import InputBase from "@material-ui/core/InputBase";
-import Paper from "@material-ui/core/Paper";
+
 import SearchIcon from "@material-ui/icons/Search";
 import { useStyles } from "../../constants/styles";
+import InputAdornment from "@material-ui/core/InputAdornment";
 
 interface Props {
   searchText: string;
   handleSearchChange: (input: string) => void;
+  changeFocus: (status: boolean) => void;
 }
 
-const SearchBar = ({ searchText, handleSearchChange }: Props) => {
+const SearchBar = ({ searchText, handleSearchChange, changeFocus }: Props) => {
   const classes = useStyles();
+
   return (
-    <Paper component="form" className={classes.searchField}>
-      <IconButton type="button" aria-label="search">
-        <SearchIcon />
-      </IconButton>
-      <InputBase
-        placeholder="Search"
-        inputProps={{ "aria-label": "search " }}
-        className={classes.search}
-        value={searchText}
-        onChange={(e) => handleSearchChange(e.target.value)}
-      />
-    </Paper>
+    <InputBase
+      className={classes.searchBar}
+      inputProps={{ "aria-label": "search " }}
+      value={searchText}
+      onChange={(e) => handleSearchChange(e.target.value)}
+      onFocus={() => changeFocus(true)}
+      onBlur={() => changeFocus(false)}
+      startAdornment={
+        <InputAdornment position="start">
+          <SearchIcon color="disabled" />
+        </InputAdornment>
+      }
+    />
   );
 };
 

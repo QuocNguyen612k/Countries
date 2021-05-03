@@ -17,7 +17,7 @@ export default function CountryInfo({ name, info }: Props) {
       </TableCell>
       <TableCell className={classes.leftCell}>
         <Typography variant="body2" className={classes.center}>
-          {info}
+          - {info}
         </Typography>
       </TableCell>
     </TableRow>

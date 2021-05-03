@@ -23,7 +23,7 @@ export default function CountryLanguages({ languages }: Props) {
             variant="body2"
             className={classes.center}
           >
-            {language.name}
+            - {language.name}
           </Typography>
         ))}
       </TableCell>
