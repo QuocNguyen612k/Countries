@@ -1,4 +1,4 @@
-import { CardMedia, Box } from "@material-ui/core";
+import { CardMedia } from "@material-ui/core";
 import { useStyles } from "../constants/styles";
 
 const Logo = () => {

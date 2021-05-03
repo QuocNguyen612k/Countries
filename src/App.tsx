@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { CountriesSearch } from "./pages";
 import { useStyles } from "./constants/styles";
-import Logo from "./components/Logo";
 
 export default function App() {
   const [countries, setCountries] = useState<Country[]>([]);

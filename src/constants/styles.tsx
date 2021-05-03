@@ -9,10 +9,14 @@ export const useStyles = makeStyles((theme: Theme) =>
       flexDirection: "column",
       alignItems: "center",
       gap: "1%",
+      backgroundImage: `url(${process.env.PUBLIC_URL}/images/bg.jpg)`,
+      backgroundPosition: "center",
+      backgroundSize: "cover",
+      backgroundRepeat: "no-repeat",
     },
     logo: {
-      width: "70%",
-      marginTop: "25%",
+      width: "80%",
+      marginTop: "15%",
       marginBottom: "3%",
     },
     centerWrapper: {
@@ -34,20 +38,22 @@ export const useStyles = makeStyles((theme: Theme) =>
       justifyContent: "center",
       overflow: "auto",
       flex: "1",
-      maxHeight: "50vh",
+      maxHeight: "60vh",
       marginTop: theme.spacing(0.5),
       borderBottomLeftRadius: 25,
       borderBottomRightRadius: 25,
     },
     noticeIcon: {
-      fontSize: 100,
+      fontSize: 80,
     },
     noticeCard: {
       display: "flex",
       alignItems: "center",
+      justifyContent: "center",
       boxShadow: "none",
       flexDirection: "column" as "column",
       backgroundColor: "inherit",
+      minHeight: "40vh",
     },
     bold: {
       fontWeight: 600,
@@ -58,14 +64,6 @@ export const useStyles = makeStyles((theme: Theme) =>
     },
     searchBar: { flex: 1, marginLeft: "1%", padding: theme.spacing(1) },
 
-    appBar: {
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
-      height: "10%",
-      backgroundColor: "#1976d2",
-    },
-
     centerCell: { textAlign: "center" },
     centerImgWrapper: {
       display: "flex",
@@ -75,38 +73,21 @@ export const useStyles = makeStyles((theme: Theme) =>
     leftCell: {
       textAlign: "left",
     },
-    centerBold: { paddingLeft: "23%", fontWeight: 600 },
+    centerBold: { paddingLeft: "40%", fontWeight: 600 },
     center: {
-      paddingLeft: "40%",
+      paddingLeft: "45%",
     },
     detailWrapper: {
       display: "flex",
       flexDirection: "column",
       alignItems: "center",
-      backgroundColor: "white",
       overflow: "auto",
+      maxHeight: "90%",
+      marginTop: "10%",
+      marginBottom: "10%",
       flex: "1",
-    },
-    detailAppBar: {
-      display: "flex",
-      flexDirection: "row",
-      alignItems: "center",
-      height: "10%",
-      backgroundColor: "#1976d2",
-    },
-    goBackButton: { color: "white", fontSize: "180%" },
-    loadingPage: {
-      height: "100vh",
-      width: "100vw",
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center",
-      backgroundColor: "#87ceeb",
-    },
-    logoWrapper: {
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center",
+      backgroundColor: "white",
+      opacity: "0.9",
     },
   })
 );
