@@ -6,15 +6,19 @@ import CountryCurrencies from "../components/detail/CountryCurrencies";
 import CountryName from "../components/detail/CountryName";
 import FlagImg from "../components/detail/FlagImg";
 import {
+  Button,
   Table,
   TableBody,
   TableHead,
   TableContainer,
   Container,
   Paper,
+  Typography,
+  IconButton,
 } from "@material-ui/core/";
+import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
 import { useContext } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import { useStyles } from "../constants/styles";
 
 interface MatchParams {
@@ -23,7 +27,7 @@ interface MatchParams {
 
 export default function CountryDetail() {
   const countries = useContext(CountriesContext) as Country[];
-  // const history = useHistory();
+  const history = useHistory();
   const classes = useStyles();
   const { name } = useParams<MatchParams>();
 
@@ -33,9 +37,9 @@ export default function CountryDetail() {
 
   const country = filter as Country;
 
-  // const goBack = () => {
-  //   history.goBack();
-  // };
+  const goBack = () => {
+    history.goBack();
+  };
 
   return (
     <>
@@ -45,6 +49,10 @@ export default function CountryDetail() {
             <TableContainer component={Paper} className={classes.detailWrapper}>
               <Table>
                 <TableHead>
+                  <IconButton onClick={goBack}>
+                    <ArrowBackIosIcon />
+                    <Typography variant="body1">Go back</Typography>
+                  </IconButton>
                   <CountryName name={country.name} />
                 </TableHead>
                 <TableBody>
