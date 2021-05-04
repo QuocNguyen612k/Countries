@@ -57,13 +57,18 @@ export const useStyles = makeStyles((theme: Theme) =>
     },
     bold: {
       fontWeight: 600,
+      textAlign: "center",
     },
     flagImg: {
       width: "40%",
       border: "1px solid",
     },
     searchBar: { flex: 1, marginLeft: "1%", padding: theme.spacing(1) },
-    centerCell: { textAlign: "center" },
+    centerCell: {
+      display: "flex",
+      alignItems: "center",
+      flexDirection: "column",
+    },
     centerImgWrapper: {
       display: "flex",
       alignItems: "center",

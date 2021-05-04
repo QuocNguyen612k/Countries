@@ -11,7 +11,7 @@ export default function CountryName({ name }: Props) {
 
   return (
     <TableRow>
-      <TableCell className={classes.centerCell} colSpan={2}>
+      <TableCell colSpan={2}>
         <Typography variant="h5" className={classes.bold}>
           {name}
         </Typography>
