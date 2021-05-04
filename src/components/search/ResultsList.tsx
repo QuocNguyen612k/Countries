@@ -1,5 +1,5 @@
 import Avatar from "@material-ui/core/Avatar";
-import { COUNTRY_DETAIL } from "../../constants/routes";
+import { COUNTRIES_DEFAULT } from "../../constants/routes";
 import { Country } from "../../context/countries";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
@@ -17,7 +17,7 @@ export default function ResultsList({ countriesList }: Props) {
   const classes = useStyles();
   const handleClick = (e: React.MouseEvent<HTMLElement>, name: string) => {
     e.preventDefault();
-    history.push(`${COUNTRY_DETAIL}/${name}`);
+    history.push(`${COUNTRIES_DEFAULT}/${name}`);
   };
   return (
     <List className={classes.resultsList}>
@@ -26,7 +26,7 @@ export default function ResultsList({ countriesList }: Props) {
           <ListItem
             button
             key={country.name}
-            onClick={(e) => handleClick(e, country.name)}
+            onMouseDown={(e) => handleClick(e, country.name)}
           >
             <ListItemAvatar>
               <Avatar alt="flag" src={country.flag} />

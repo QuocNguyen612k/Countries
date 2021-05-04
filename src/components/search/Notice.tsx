@@ -39,7 +39,7 @@ export default function Notice({ info }: Props) {
     <Card className={classes.noticeCard}>
       <CardMedia>{notice[0].icon}</CardMedia>
       <CardContent>
-        <Typography gutterBottom variant="h5" component="h2">
+        <Typography gutterBottom variant="body2" component="h2">
           {notice[0].message}
         </Typography>
       </CardContent>
