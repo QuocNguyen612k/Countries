@@ -63,7 +63,6 @@ export const useStyles = makeStyles((theme: Theme) =>
       border: "1px solid",
     },
     searchBar: { flex: 1, marginLeft: "1%", padding: theme.spacing(1) },
-
     centerCell: { textAlign: "center" },
     centerImgWrapper: {
       display: "flex",
@@ -88,6 +87,12 @@ export const useStyles = makeStyles((theme: Theme) =>
       flex: "1",
       backgroundColor: "white",
       opacity: "0.9",
+    },
+    detailContainer: {
+      display: "flex",
+      flex: 1,
+      maxHeight: "100vh",
+      flexDirection: "column",
     },
   })
 );

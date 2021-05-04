@@ -14,7 +14,7 @@ import {
   Paper,
 } from "@material-ui/core/";
 import { useContext } from "react";
-import { useParams, useHistory } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useStyles } from "../constants/styles";
 
 interface MatchParams {
@@ -41,15 +41,7 @@ export default function CountryDetail() {
     <>
       {filter !== undefined && (
         <>
-          <Container
-            maxWidth="sm"
-            style={{
-              display: "flex",
-              flex: 1,
-              maxHeight: "100vh",
-              flexDirection: "column",
-            }}
-          >
+          <Container maxWidth="sm" className={classes.detailContainer}>
             <TableContainer component={Paper} className={classes.detailWrapper}>
               <Table>
                 <TableHead>
