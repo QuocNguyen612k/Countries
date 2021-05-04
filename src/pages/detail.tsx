@@ -13,6 +13,7 @@ import {
   Container,
   Paper,
 } from "@material-ui/core/";
+
 import { useContext } from "react";
 import { useParams } from "react-router-dom";
 import { useStyles } from "../constants/styles";
@@ -23,7 +24,7 @@ interface MatchParams {
 
 export default function CountryDetail() {
   const countries = useContext(CountriesContext) as Country[];
-  // const history = useHistory();
+
   const classes = useStyles();
   const { name } = useParams<MatchParams>();
 
@@ -32,10 +33,6 @@ export default function CountryDetail() {
   );
 
   const country = filter as Country;
-
-  // const goBack = () => {
-  //   history.goBack();
-  // };
 
   return (
     <>
